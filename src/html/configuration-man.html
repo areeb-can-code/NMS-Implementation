@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+
+</head>
+<nav>
+    <ul>
+        <li><a href="snmpTrap.cgi">Fault Management</a></li>
+        <li><a href="config-man.html">Configuration Management</a></li>
+        <li><a href="hw04script-opt.cgi">Accounting Management</a></li>
+        <li><a href="performance.html">Performance Management</a></li>
+        <li><a href="../hw05/hw03Security.cgi">Security Management</a></li>
+    </ul>
+</nav>
+<br><br><br>
+<hr>
+<br><br><br>
+    <title>Configuration Management</title>
+<BODY>
+<H2>Configuration Management</H2>
+<p> Configuring Interfaces and more!</p>
+
+<p>This prints out: <br>
+    (a)<b> IP Routing Table </b><br>
+    (b) <b>ARP Table</b> <br>
+    (c) <b>MAC Address table </b><br>of the given hosts within the dropdown menu. </P>
+<!--(d) <b> Interface Table </b> of the given hosts within the dropdown menu. </P>
+-->
+<style>
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+    select {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+
+</style>
+<HR>
+<div class="table-container">
+    <Table border=2>
+        <TH>IP Routing Table</TH>
+        <TH>ARP Table</TH>
+        <TH>MAC Address Table</TH>
+        <TH>Interface Table (required)</TH>
+        <!-- <TH>STP Port State Table (Extra Credit)</TH> -->
+        <TH>Cisco Discovery Protocol (CDP)</TH>
+        <TR>
+            <TD>Select IP Address:</TD>
+            <TD>Select IP Address:</TD>
+            <TD>Select IP Address and VLAN:</TD>
+            <TD>Select IP Address:</TD>
+           <!-- <TD>Select IP Address and VLAN:</TD> -->
+            <TD>Select IP Address:</TD>
+        </TR>
+        <TR>
+            <TD>
+                <form method="post" action="../hw07/getRoutingTable.cgi">
+                    <table align="center" border=2>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <label for="host">Select Host:</label>
+                                <select id="host" name="host">
+                                    <option value="172.26.1.4">172.26.1.4</option>
+                                    <option value="192.168.1.5">192.168.1.5</option>
+                                    <option value="172.26.1.101">172.26.1.101</option>
+                                    <option value="192.168.20.102">192.168.20.102</option>
+                                    <option value="172.26.1.103">172.26.1.103</option>
+                                    <option value="192.168.20.104">192.168.20.104</option>
+                                    <option value="192.168.20.23">192.168.20.23</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <center><input type=submit value=submit></center>
+                </form>
+            </TD>
+            <TD>
+                <FORM method="post" action="../hw07/getARPTable.cgi">
+                    <table align="center" border=2>
+                        <TR>
+                            <TD><SELECT name=host>
+                                <OPTION VALUE=172.26.1.4>172.26.1.4
+                                <OPTION VALUE=192.168.1.5>192.168.1.5
+                                <OPTION VALUE=172.26.1.101>172.26.1.101
+                                <OPTION VALUE=192.168.20.102>192.168.20.102
+                                <OPTION VALUE=172.26.1.103>172.26.1.103
+                                <OPTION VALUE=192.168.20.104>192.168.20.104
+                                <OPTION VALUE=192.168.1.1>192.168.1.1
+                                <OPTION VALUE=192.168.1.2>192.168.1.2
+                                <OPTION VALUE=192.168.1.3>192.168.1.3
+                                <OPTION VALUE=192.168.20.23>192.168.20.23
+                            </SELECT>
+                            </TD>
+                        </TR>
+                    </table>
+                    <center><input type=submit value=submit></center>
+                </FORM>
+            </TD>
+            <TD>
+                <FORM method="post" action="../hw07/getMACTable.cgi">
+                    <table align="center" border=2>
+                        <TR>
+                            <TD><SELECT name=host>
+                                <OPTION VALUE=192.168.1.1>192.168.1.1
+                                <OPTION VALUE=192.168.1.2>192.168.1.2
+                                <OPTION VALUE=192.168.1.3>192.168.1.3
+                            </SELECT>
+                            </TD>
+                            <TD><SELECT name=vlan>
+                                <OPTION VALUE=1>VLAN 1
+                                <OPTION VALUE=2>VLAN 2
+                                <OPTION VALUE=3>VLAN 3
+                            </SELECT>
+                            </TD>
+                        </TR>
+                    </table>
+                    <center><input type=submit value=submit></center>
+                </FORM>
+            </TD>
+            <TD>
+                <FORM method="post" action="../hw07/getIFTable.cgi">
+                    <table align="center" border=2>
+                        <TR>
+                            <TD><SELECT name=host>
+                                <OPTION VALUE=192.168.1.1>192.168.1.1
+                                <OPTION VALUE=192.168.1.2>192.168.1.2
+                                <OPTION VALUE=192.168.1.3>192.168.1.3
+                                <OPTION VALUE=192.168.1.4>192.168.1.4
+                                <OPTION VALUE=192.168.1.5>192.168.1.5
+                                <OPTION VALUE=172.26.1.101>172.26.1.101
+                                <OPTION VALUE=192.168.20.102>192.168.20.102
+                                <OPTION VALUE=172.26.1.103>172.26.1.103
+                                <OPTION VALUE=192.168.20.104>192.168.20.104
+                                <OPTION VALUE=192.168.20.23>192.168.20.23
+                            </SELECT>
+                            </TD>
+                        </TR>
+                    </table>
+                    <center><input type=submit value=submit></center>
+                </FORM>
+            </TD>
+            <!--<TD>
+                <FORM method="post" action="../net484hw07/getSTPTable.cgi">
+                    <table align="center" border=2>
+                        <TR>
+                            <TD><SELECT name=host>
+                                <OPTION VALUE=192.168.1.1>192.168.1.1
+                                <OPTION VALUE=192.168.1.2>192.168.1.2
+                                <OPTION VALUE=192.168.1.3>192.168.1.3
+                            </SELECT>
+                            </TD>
+                            <TD><SELECT name=vlan>
+                                <OPTION VALUE=3>VLAN 3
+                            </SELECT>
+                            </TD>
+                        </TR>
+                    </table>
+                    <center><input type=submit value=submit></center>
+                </FORM>
+            </TD>
+            -->
+            <TD>
+                <FORM method="post" action="../hw06/hw06cdp.cgi">
+                    <table align="center" border=2>
+                        <TR>
+                            <TD><SELECT name=host>
+                                <OPTION VALUE=192.168.1.1>192.168.1.1
+                                <OPTION VALUE=192.168.1.2>192.168.1.2
+                                <OPTION VALUE=192.168.1.3>192.168.1.3
+                            </SELECT>
+                            </TD>
+                        </TR>
+                    </table>
+                    <center><input type=submit value=submit></center>
+                </FORM>
+            </TD>
+        </TR>
+    </Table>
+</div>
+<HR>
+
+<H3>Update Network Device Information</H3>
+<form name=SysForm method=post action="setSysInfo.cgi">
+    <table border=2>
+        <TH>Host IP address</TH>
+        <TH>MIB Name</TH>
+        <TH>MIB Type</TH>
+        <TH>Community String</TH>
+        <TH>MIB Value</TH>
+        <TR>
+            <TD>
+                <SELECT Name="host">
+                    <OPTION value=192.168.1.1>192.168.1.1
+                    <OPTION value=192.168.1.2>192.168.1.2
+                    <OPTION value=192.168.1.3>192.168.1.3
+                    <OPTION value=172.26.1.101>172.26.1.101
+                    <OPTION VALUE=192.168.20.102>192.168.20.102
+                    <OPTION VALUE=172.26.1.103>172.26.1.103
+                    <OPTION VALUE=192.168.20.104>192.168.20.104
+                </SELECT>
+            </TD>
+            <TD>
+                <SELECT Name="mibName">
+                    <OPTION value="1.3.6.1.2.1.1.4.0">sysContact</OPTION>
+                    <OPTION value="1.3.6.1.2.1.1.5.0">sysName</OPTION>
+                    <OPTION value="1.3.6.1.2.1.1.6.0">sysLocation</OPTION>
+                </SELECT>
+            </TD>
+            <TD>
+                <SELECT Name="mibType">
+                    <OPTION value="string"> String</OPTION>
+                    <OPTION value="integer">Integer</OPTION>
+                </SELECT>
+            </TD>
+            <TD><input type=text name=community value="[enter the community string]"></TD>
+            <TD><input type=text name=mibValue value="[enter the MIB value]"></TD>
+            <TD><input type=submit name=submit value=submit></TD>
+
+        </TR>
+    </table>
+</form>
+
+<HR>
+<!--
+This section adds a new form to configure network interface settings.
+
+The form sends a POST request to the "setInterface.cgi" script when the user submits it.
+
+The form contains a table with three dropdown menus and a submit button.
+The first dropdown menu lets the user select a host IP address.
+The second dropdown menu lets the user select an interface ID name.
+The third dropdown menu lets the user select the up/down status of the interface.
+The submit button sends the form data to the server when the user clicks it.
+
+The table has a border of 2 and three table headers: "Host IP address", "Interface ID Name", and "Up/Down Status".
+The table has one table row with four table data cells: one for each dropdown menu and one for the submit button.
+
+The HTML code uses the deprecated <HR> and <TH> elements, which should be replaced with CSS.
+-->
+
+<h3>Network Interface Configuration</h3>
+
+<form name="intForm" method="post" action="setInterface.cgi">
+    <table class="interface-table">
+        <thead>
+        <tr>
+            <th>Host IP address</th>
+            <th>Interface ID Name</th>
+            <th>Up/Down Status</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <select name="host">
+                    <option value="192.168.1.1">192.168.1.1</option>
+                </select>
+            </td>
+            <td>
+                <select name="ifIndex">
+                    <option value="22">fa0/22</option>
+                    <option value="23">fa0/23</option>
+                </select>
+            </td>
+            <td>
+                <select name="ifStatus">
+                    <option value="1">up</option>
+                    <option value="2">down</option>
+                </select>
+            </td>
+            <td>
+                <input type="submit" name="submit" value="Submit">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+
+</BODY>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Performance Metrics</title>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="snmpTrap.cgi">Fault Management</a></li>
+    <li><a href="config-man.html">Configuration Management</a></li>
+    <li><a href="hw04script-opt.cgi">Accounting Management</a></li>
+    <li><a href="performance.html">Performance Management</a></li>
+    <li><a href="../hw05/hw03Security.cgi">Security Management</a></li>
+  </ul>
+</nav>
+<br><br><br>
+
+<main>
+  <h2 align="center">Performance Management</h2>
+
+  <h3> Network Throughput Report</h3>
+  <ul>
+    <li><a href="../mrtg/192.168.1.1/index_192.168.1.1.html">Switch-01 (192.168.1.1)</a>
+    </li><li><a href="../mrtg/192.168.1.2/index_192.168.1.2.html">Switch-02 (192.168.1.2)</a>
+  </li><li><a href="../mrtg/192.168.1.3/index_192.168.1.3.html">Switch-03 (192.168.1.3)</a>
+  </li></ul>
+
+
+  <h3>Linux05 System Load Report (no registration requirement)</h3>
+
+  <form method="post" action="../hw05/hw05script.cgi">
+    <input type="hidden" name="user" value="anonymous">
+    <input type="hidden" name="password" value="anonymous">
+    <fieldset>
+      <legend>Date Range</legend>
+      <label for="sdate">Starting Date:</label>
+      <input type="date" id="sdate" name="sdate">
+      <label for="edate">Ending Date:</label>
+      <input type="date" id="edate" name="edate">
+    </fieldset>
+    <fieldset>
+      <legend>Report Type</legend>
+      <label for="rtype">Select a report type:</label>
+      <select id="rtype" name="rtype">
+        <option value="1">daily</option>
+        <option value="2">hourly</option>
+        <option value="3">raw</option>
+        <option value="9">weekly (future use)</option>
+      </select>
+    </fieldset>
+    <input type="hidden" name="email" value="aabubake@depaul.edu/A">
+    <button type="submit">Submit</button>
+  </form>
+
+
+  <h3> <a href="../hw05/hw02script.cgi">Network Research Lab RTT Report</a></h3>
+</main>
+</body>
+</html>
